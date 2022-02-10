@@ -5,7 +5,13 @@ function nonConstructibleChange (coins: number[]): number {
   	  sortedArray.shift();
   }
   
-  const sumAmount = sortedArray.reduce((current, amount) => { return current + amount }, 0);
+  const sumAmount = sortedArray.reduce((current, amount) => { 
+    if (current > 0) { 
+      return current + amount 
+    } else {
+      return amount;
+    }  
+  }, 0);
   
   return sumAmount + 1;
 }
